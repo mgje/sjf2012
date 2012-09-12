@@ -1,0 +1,4 @@
+Dieses Projekt ist OpenSource: http://de.wikipedia.org/wiki/Open_Source 
+
+Open Source und quelloffen nennt man Software, die unter einer Lizenz steht, die besagt, dass 
+der Quelltext öffentlich zugänglich ist und frei kopiert, modifiziert und verändert wie unverändert weiterverbreitet werden darf.
