@@ -1,6 +1,5 @@
-Liebe forschende schweizer Jugend,
 
-um Filme von vielen Bidlern zu generieren ist ffmpeg ein sehr nuetzliches tool.
+Um Filme von vielen Bildern zu generieren ist ffmpeg ein sehr nuetzliches Tool.
 
 Ihr koennt es fuer Windows unter http://ffmpeg.zeranoe.com/builds/ herunterladen.
 Sucht die 32- oder 64-bit static builds, abhaengig von eurem Computer.
@@ -17,3 +16,5 @@ USAGE: genMovie.bat [filename] [imageext] [framerate] [bitrate] [videoformat]
          e.g.: 'genMovie.bat nano png 25 5000 webm', this means all source files
          are of the form nanoXYZ.png (XYZ are numbers) and the video will be stored as
          nano.webm with a frame rate of 25 an a bit rate of 5000k
+
+Als weitere Methode kann mit http://firefogg.org/ direkt im Firefox Browser aus Einzelbildern ein Video erstellt werden.
