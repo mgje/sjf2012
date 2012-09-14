@@ -1,0 +1,173 @@
+// Persistence Of Vision Ray Tracer Scene Description File
+// -------------------------------------------------------
+// Final_Frame=200 Subset_Start_Frame=1 Subset_End_Frame=200 Output_File_Type=N16  Quality=9
+//ANIMATE WITH CLOCK FROM 0 TO 1
+
+//File: wavexx.pov 
+// Author: martin.guggisberg@unibas.ch
+// www.nano-world.org
+
+//Animation of a sequence of mesh2 Objects stored in
+//include files
+
+//
+// ============ basic settings ============
+
+#include "colors.inc"
+
+
+#ifndef (View)
+	// 1 = front, 2 = top, 3 =left, 4= back, 5= bottom, 6=right
+	#declare View=1;
+	
+#end
+
+// Light intensity
+#declare Light_Intensity=2.1;        
+// NR of calculateted objects 
+#declare nr_of_inc=440;           
+// Look at
+#declare   Look_at=<0.0,0.0,0.0>;
+
+
+// ----------------------------------------
+
+
+
+
+#switch (View)
+	#case (1)
+		// --- front ---
+		#declare  Cam_Location=<360,360/2.5,0>;;
+	
+	#break
+	#case (2)
+		// --- top ---
+		#declare  Cam_Location=<20,720,0.5>;
+		
+			#break
+   	#case(3)
+		// --- north ---                                            Sicht gegen Norden
+		#declare  Cam_Location=<0,200,300>;
+		         
+		
+			#break
+	#case(4)
+		// ---back ---
+		#declare  Cam_Location=<-13,8,0>;
+		        
+	#break
+	#case(5)
+		// --- bottom---
+		#declare  Cam_Location=<0,-15,0>;
+		
+		
+	#break
+	#case(6)
+		// --- right---
+		#declare  Cam_Location=<0,8,-13>;
+		
+	#break
+#end
+
+
+// ----------------------------------------
+
+
+        
+        
+//Define spot lights around a sphere with different color          
+
+#local a=0.0; 
+#local LNR = 25; // Number of lights
+#local LR = 600;  // Radius of light sphere 
+#local IG = 0.2; // Green intesity  
+#local IR = 0.2; // Red intesity
+#local IB = 0.2; // Blue intesity
+
+
+
+
+// Colored Light sources
+
+
+/*#while(a<LNR)
+  light_source { <LR*sin(a*pi*2/LNR), LR*cos(a*pi*2/LNR), LR*cos(a*pi*6/LNR+pi)> 
+  colour (<sin(a*pi*2/LNR+pi*3/4)*IR,cos(a*pi*2/LNR+pi*1/4)*IG,sin(a*pi*2/LNR+pi*1/4)*IB>)*Light_Intensity }
+  #local a=a+1;
+#end
+ */ 
+ 
+ 
+  
+light_source {<200,200,0> color White
+              
+            shadowless}
+
+
+
+//------------------------------------
+//              Zyliner bei Basel
+ 
+  cylinder {
+    <7.6, 0, 47.6>,     // Center of one end
+    <7.6, 40, 47.6>,     // Center of other end
+    0.5            // Radius
+    pigment{color Red}          
+   
+  } 
+ 
+//              Schriftzug Basel 
+   
+ 
+        global_settings { charset utf8 }
+text{
+  ttf "arial.ttf",
+  concat(
+  "BASEL"), 0.01, 0
+  pigment{color Red}
+  scale 7 translate<10, 35, 47.6>
+    } 
+
+
+    
+
+  
+   
+  
+// --------------- Kamera: ----------
+camera {
+  
+  angle    60
+  direction <7.6,25,47.6>
+  location <0 , 250 ,-300>
+  right    x*image_width/image_height
+  look_at  <7.6 , 25, 47.6>
+  rotate   <0,(-12*clock),0>
+  translate <0, -150*clock, 200*clock>
+  }
+  
+  
+  
+
+      
+    declare timer= floor(clock*(nr_of_inc-1)+0.45);
+
+// load include files from
+// welle-NR-1.inc to welle-NR-200.inc 
+// ============== data ==============
+#local fname= concat("incFiles/t_",str(1+clock*nr_of_inc,-1,0),".inc")
+//#local fname = "test.inc"  //concat("welle-NR-",str(timer+1,-1,0),".inc");  
+#warning fname
+#include  fname
+
+// ----------------------------------------
+//              colour (<sin(a*pi*2/LNR+pi*3/4)*IR,cos(a*pi*2/LNR+pi*1/4)*IG,sin(a*pi*2/LNR+pi*1/4)*IB>)*Light_Intensity }  
+
+
+  
+
+
+
+
+
