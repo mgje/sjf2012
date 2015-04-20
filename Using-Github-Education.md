@@ -1,6 +1,7 @@
 Materialien im Internet veröffentlichen
 =======================================
 
-1. Textdatei im Links und Bildern
+1. Textdatei (z.B. Linksammlung)
 * Materialien (PDFs, ppt, doc)
+* Wiki
 * Webseite
